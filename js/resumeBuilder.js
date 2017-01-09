@@ -7,7 +7,7 @@ var bio = {
         "github": "alinaheghedus",
         "location": "Toronto"
     },
-    "welcomeMsg": "Welcome to my online resume!",
+    "welcomeMessage": "Welcome to my online resume!",
     "skills": ["HTML/CSS", "JavaScript", "jQuery", "Web development"],
     "picture": "images/me.jpg"
 };
@@ -18,7 +18,7 @@ bio.display = function() {
     $("#header").prepend(formattedName, formattedRole);
 
     var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
-    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedPic, formattedWelcomeMsg);
 
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -76,13 +76,13 @@ work.display();
 var education = {
     "schools": [{
         "name": "Babes Bolyai University",
-        "major": "Sociology",
+        "majors": ["Sociology"],
         "location": "Cluj-Napoca",
         "dates": "2004-2008",
         "degree": "BA",
         "url": "http://www.ubbcluj.ro/en/"
     }],
-    "onlineClass": [{
+    "onlineCourses": [{
         "school": "Udacity",
         "title": "Front-End Web Development",
         "dates": "Aug 2016-today",
@@ -95,23 +95,24 @@ education.display = function() {
     education.schools.forEach(function(school) {
         $("#education").append(HTMLschoolStart);
 
-        var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
+        var formattedSchoolName = HTMLschoolName.replace("%data%", school.name).replace("#", school.url);
         var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
         var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
-        var formattedSchoolMajors = HTMLschoolMajor.replace("%data%", school.major);
+        var formattedSchoolMajors = HTMLschoolMajor.replace("%data%", school.majors);
         var formattedSchoolInfo = formattedSchoolName + formattedSchoolDegree + formattedSchoolDates + formattedSchoolLocation + formattedSchoolMajors;
 
         $(".education-entry:last").append(formattedSchoolInfo);
     });
 
-    education.onlineClass.forEach(function(onlineClass) {
+
+    education.onlineCourses.forEach(function(onlineCourse) {
         $(".education-entry:last").append(HTMLonlineClasses);
 
-        var formattedClassSchool = HTMLonlineSchool.replace("%data%", onlineClass.school);
-        var formattedClassTitle = HTMLonlineTitle.replace("%data%", onlineClass.title);
-        var formattedClassDates = HTMLonlineDates.replace("%data%", onlineClass.dates);
-        var formattedClassUrl = HTMLonlineURL.replace("%data%", onlineClass.url);
+        var formattedClassSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
+        var formattedClassTitle = HTMLonlineTitle.replace("%data%", onlineCourse.title);
+        var formattedClassDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
+        var formattedClassUrl = HTMLonlineURL.replace("%data%", onlineCourse.url);
         var formattedClassInfo = formattedClassSchool + formattedClassTitle + formattedClassDates + formattedClassUrl;
 
         $(".education-entry:last").append(formattedClassInfo);
@@ -122,16 +123,16 @@ education.display();
 
 
 var projects = {
-    "project": [{
+    "projects": [{
         "title": "First Web Page",
         "dates": "Aug 2016",
         "description": "creating my first web page after learning HTML and CSS",
-        "image": ["images/portfolio.png", "images/portfolio2.png"]
+        "images": ["images/portfolio.png", "images/portfolio2.png"]
     }]
 };
 
 projects.display = function() {
-    projects.project.forEach(function(project) {
+    projects.projects.forEach(function(project) {
 
         $('#projects').append(HTMLprojectStart);
         var formattedProjectTitle = HTMLprojectTitle.replace('%data%', project.title);
@@ -142,7 +143,7 @@ projects.display = function() {
 
         //if(projects.project[i].image.length > 0)
         //for ( var i = 0; i < projects.project[i].image.length; i++ )
-        project.image.forEach(function(img) {
+        project.images.forEach(function(img) {
             var formattedProjectImage = HTMLprojectImage.replace('%data%', img);
             $('.project-entry:last').append(formattedProjectImage);
         });
