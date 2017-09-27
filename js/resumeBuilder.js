@@ -141,8 +141,7 @@ projects.display = function() {
         var formattedProjectInfo = formattedProjectTitle + formattedProjectDates + formattedProjectDescription;
         $('.project-entry:last').append(formattedProjectInfo);
 
-        //if(projects.project[i].image.length > 0)
-        //for ( var i = 0; i < projects.project[i].image.length; i++ )
+       
         project.images.forEach(function(img) {
             var formattedProjectImage = HTMLprojectImage.replace('%data%', img);
             $('.project-entry:last').append(formattedProjectImage);
