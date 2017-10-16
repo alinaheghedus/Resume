@@ -1,12 +1,4 @@
-/*
 
-This file contains all of the code running in the background that makes resumeBuilder.js possible
-*/
-
-
-/*
-using JavaScript functions we replace the %data% placeholder text we see in them.
-*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
@@ -65,9 +57,7 @@ $(document).ready(function() {
   });
 });
 
-/*
- Collecting Click Locations
-*/
+
 var clickLocations = [];
 
 function logClicks(x,y) {
@@ -86,14 +76,9 @@ $(document).click(function(loc) {
 
 
 
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-*/
-var map;    // declares a global map variable
 
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
+var map;    
+
 function initializeMap() {
 
   var locations;
@@ -103,27 +88,20 @@ function initializeMap() {
     maxZoom: 5
   };
 
-  /*
-  For the map to be displayed, the googleMap var must be
-  appended to #mapDiv in resumeBuilder.js.
-  */
+ 
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
-  /*
-  locationFinder() returns an array of every location string from the JSONs
-  written for bio, education, and work.
-  */
+
   function locationFinder() {
 
-    // initializes an empty array
+  
     var locations = [];
 
-    // adds the single location property from bio to the locations array
+    
     locations.push(bio.contacts.location);
 
-    // iterates through school locations and appends each location to
-    // the locations array
+   
    
     education.schools.forEach(function(school){
       locations.push(school.location);

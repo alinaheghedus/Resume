@@ -41,10 +41,10 @@ bio.display();
 
 var work = {
     "jobs": [{
-            "employer": "Optimalgorythms",
+            "employer": "Optimalgorithms",
             "title": "Web developer",
             "location": "Toronto",
-            "dates": "Jan 2015 - today",
+            "dates": "Jan 2015 - Aug 2017",
             "description": "working on entry level web development"
         },
         {
@@ -85,7 +85,7 @@ var education = {
     "onlineCourses": [{
         "school": "Udacity",
         "title": "Front-End Web Development",
-        "dates": "Aug 2016-today",
+        "dates": "Aug 2016",
         "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001?v=fe1"
     }]
 };
